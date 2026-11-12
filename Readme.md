@@ -1,79 +1,46 @@
-# Session 1: Your first Java OOP exercise
+# Java Lesson: Classes, Objects, and Methods
 
-## Goal
+This guided lesson introduces object-oriented programming (OOP) through a small Java console application. It is written for learners who are new to Java and can also be used as a teaching guide.
 
-Build a small Java program, understand how it works, and submit its source code in a Git repository.
+## Learning goals
 
-We will use **Ubuntu + VS Code + your installed JDK**, without Maven. Maven is useful later for dependencies, testing, and repeatable builds, but this exercise does not need it.
+- Explain the difference between a class, an object, a method, and an object reference.
+- Declare a Java package and organize source files to match it.
+- Create an object and call its instance methods.
+- Compile and run a packaged Java class from the terminal.
+- Recognize the role of the JDK, compiler, bytecode, and JVM.
 
-**Working assumptions:** each question needs its own repository; the six methods may print fictional employee details; no keyboard input, database, or separate launcher class is required. These are reasonable interpretations of the assignment, not extra requirements from your instructor.
+The lesson uses Ubuntu, VS Code, and a JDK. Maven is not required because the program has no external dependencies. Type the example yourself where possible, and use the explanations to understand each step rather than only copying the final output.
 
-Type the code yourself if possible. The aim is to understand it, not just obtain the output.
+## 1. Understand the exercise
 
-## 1. Understand the question before coding
-
-Your assignment specifies:
+The exercise asks you to create:
 
 | Requirement | What you need to create |
 |---|---|
-| Project: `EmployeeDetails` | A folder named `EmployeeDetails` |
-| Package: `org.emp` | A package declaration and matching folders under the source folder |
-| Class: `Employee` | A file named `Employee.java` containing `public class Employee` |
-| Six named methods | `empId()`, `empName()`, `empDob()`, `empPhone()`, `empEmail()`, `empAddress()` |
-| Create an object | Use `new Employee()` |
-| Call the methods | Call each method through the object reference |
-| Follow coding standards | Correct naming, indentation, file organization, and readable code |
+| Project folder | `EmployeeDetails` |
+| Package | `org.emp`, with matching folders under the source folder |
+| Class | A public class named `Employee` in `Employee.java` |
+| Methods | `empId()`, `empName()`, `empDob()`, `empPhone()`, `empEmail()`, and `empAddress()` |
+| Object creation | Create an object with `new Employee()` |
+| Method calls | Call all six methods through the object reference |
 
-In plain English:
+In plain language, define an `Employee` class, create one employee object, and ask it to display six pieces of information. The focus is on **classes, objects, and methods**; the exercise does not require implementing every OOP concept.
 
-> Define what an employee can do, create one employee object, and ask it to display six details.
-
-The question does **not** ask you to implement all four OOP pillars. Its main focus is **classes, objects, and methods**.
-
-## How to run the project in terminal 
-`javac -d . src/org/emp/Employee.java && java src/org/emp/Employee.java`
-
-1. `javac` stands for **Java Compiler**
-
-it converts Java code (.java) into bytecode (.class) that the Java Virtual Machine(JVM) can execute.
-
-`javac Employee.java` This comples that  file and generate `Employee.class` the the JVM can be able to execute them.
-
-so 
-
-- `Employee.java` = source code you write
-- `javac`= Compiler that  translates your code.
-- `Employee.class` = compiled Java bytecode
-
-2. What is `-d`
-
-- `-d` is a compiler option that tells `javac` where the put the generated `class` files.
-
-eg: `javac -d output Employee.java`
-
-This tells java to put the compiled class files inside the `output` directory 
-
-3. What is `.`?
-The dot (`.`) represents the **Current working directory**
-
-`javac -d .` means compile my java code and generate the class files in the current directory, following the package structure
-
-
+For this example, the methods print fictional demonstration data. Keyboard input, a database, and a separate launcher class are outside the scope of this first lesson.
 
 ### A simple mental model
 
 - **Class:** a blueprint defining fields and behavior.
 - **Object:** a particular instance created from that class.
 - **Method:** an action defined by the class.
-- **Object reference:** a variable through which you can access an object.
+- **Object reference:** a variable that refers to an object so you can access it.
 
-In this exercise, `Employee` is the class, `new Employee()` creates an object, and `employee` will be the variable referring to that object.
+In this exercise, `Employee` is the class, `new Employee()` creates an object, and `employee` is the variable that refers to it.
 
-## 2. Check your environment
+## 2. Check your development environment
 
-Your pasted output shows that Java, VS Code, Git, and Maven are installed. It does not independently confirm that the Java compiler is available in your shell.
-
-Run these commands in your Ubuntu terminal:
+Run these commands in a terminal:
 
 ```bash
 java -version
@@ -81,11 +48,9 @@ javac -version
 git --version
 ```
 
-`java` launches programs. `javac` compiles Java source files.
+`java` launches Java programs. `javac` compiles Java source files. Both commands should be available from the JDK installation. Git is only needed if you plan to save or submit the project using version control.
 
-If both Java commands report version 25, keep that JDK for this exercise. There is no reason to downgrade just because the course notes mention Java 8. The code below uses long-established Java syntax; if your instructor requires an older submission target, confirm that separately.
-
-If `javac` is missing, stop here and share the error before installing or changing anything.
+This example uses long-established Java syntax and does not require a specific recent Java release. Follow your course requirements if they specify a JDK version. If `javac` is missing, install or configure a JDK before continuing.
 
 ### Configure VS Code
 
@@ -107,9 +72,9 @@ If VS Code cannot find your JDK:
 
 You do not need to set `JAVA_HOME` manually unless a tool reports a problem.
 
-## 3. Create the project structure
+## 3. Create or open the project
 
-Run these commands **from the `Introduction` directory shown in your terminal**:
+If you are starting from the parent `Introduction` directory, create and open the project with:
 
 ```bash
 pwd
@@ -121,12 +86,14 @@ code .
 
 `pwd` lets you verify your location before creating anything. `mkdir -p` creates the requested folders and any missing parent folders. `code .` opens the current project folder in VS Code.
 
+If this project folder already exists, open `EmployeeDetails` in VS Code instead of creating another copy. The remaining terminal commands in this lesson should be run from the project root (the directory that contains `src/`).
+
 Your project will eventually look like this:
 
 ```text
 EmployeeDetails/
 ├── .gitignore
-├── README.md
+├── Readme.md
 ├── .vscode/
 │   └── settings.json
 └── src/
@@ -181,7 +148,7 @@ We will commit the small, portable VS Code settings file, but not compiled outpu
 
 **Checkpoint:** you should have opened `EmployeeDetails`, not its parent directory, as your VS Code workspace.
 
-## 4. Implement the assignment
+## 4. Write the program
 
 Create `src/org/emp/Employee.java` and type:
 
@@ -227,11 +194,11 @@ public class Employee {
 }
 ```
 
-All employee details above are **fictional demonstration data**. Do not publish your real phone number, date of birth, or home address in a public learning repository.
+The employee details in the example are **fictional demonstration data**. Before sharing this project, make sure the values in your own `Employee.java` are fictional too; do not publish personal phone numbers, dates of birth, email addresses, or home addresses.
 
 For this introductory assignment, printing fixed values is enough. In a later lesson, you can store employee data in instance fields and initialize it with a constructor. We are deliberately not adding those concepts yet.
 
-## 5. Understand the code
+## 5. Understand the program, one part at a time
 
 ### The package declaration
 
@@ -337,17 +304,19 @@ End main
 
 Only one object is needed to call all six methods.
 
-## 6. Compile and run from the terminal
+## 6. Compile and run the program
 
 Save your files. Open a terminal in VS Code and confirm that its current directory is `EmployeeDetails`.
 
-Compile:
+Create the output directory if it does not exist, then compile:
 
 ```bash
+mkdir -p out
 javac -d out src/org/emp/Employee.java
 ```
 
 - `javac`: the compiler.
+- `mkdir -p out`: creates the destination directory for compiled files.
 - `-d out`: writes generated class files under `out`, creating the required package folders.
 - The final argument identifies the source file.
 
@@ -369,7 +338,7 @@ java -cp out org.emp.Employee
 
 Do **not** add `.java` or `.class` to the class name in this command.
 
-Expected output:
+The example source above prints:
 
 ```text
 Employee ID: EMP001
@@ -379,6 +348,8 @@ Employee Phone: 000-000-0000
 Employee Email: alex.morgan@example.com
 Employee Address: 123 Example Street, Example City
 ```
+
+The exact output depends on the text inside each method. Use fictional details, especially if the repository will be public.
 
 The source-to-execution flow is:
 
@@ -394,11 +365,11 @@ With the Java extensions ready, use **Run** above `main`, or use **Run Java** fr
 
 Learn the terminal commands first: they explain what the editor does for you.
 
-## 7. Apply the coding standards relevant today
+## 7. Apply the relevant Java naming and formatting conventions
 
-| Item | Use here | Rule |
+| Item | Example | Convention |
 |---|---|---|
-| Project | `EmployeeDetails` | Follow the assignment's exact name; project naming is not a Java language rule |
+| Project | `EmployeeDetails` | Follow the exercise's exact name; project naming is not a Java language rule |
 | Package | `org.emp` | Lowercase, dot-separated components |
 | Class | `Employee` | UpperCamelCase |
 | File | `Employee.java` | Match the public class name exactly |
@@ -407,49 +378,15 @@ Learn the terminal commands first: they explain what the editor does for you.
 | Indentation | Four spaces | Consistent nesting |
 | Statements | End with `;` where required | For example, assignments and method calls |
 
-Do not change the required method names to supposedly better names: the instructor may check those exact names.
+Keep the required method names unchanged if the exercise specifies them; an instructor or automated checker may expect those exact names.
 
 Avoid names such as `e`, `obj`, or `a` when `employee` communicates the meaning more clearly.
 
-## 8. Prepare your repository
+## 8. Save and submit your work (optional Git workflow)
 
-### Add a README
+### Review this lesson README
 
-Create `README.md` with:
-
-````markdown
-# EmployeeDetails
-
-Java OOP introduction — Question 01.
-
-## Objective
-
-Create an Employee class in the org.emp package, instantiate it, and call
-empId(), empName(), empDob(), empPhone(), empEmail(), and empAddress().
-
-## Requirements
-
-A JDK providing java and javac. This project uses no external dependencies.
-
-## Compile and run
-
-Run from the project root:
-
-```bash
-javac -d out src/org/emp/Employee.java
-java -cp out org.emp.Employee
-```
-
-## Concepts practiced
-
-- Packages and classes
-- Instance methods
-- Object creation
-- Method calls
-- The conventional main method
-
-All employee details are fictional demonstration data.
-````
+This document is the project README. Keep it in the project root and update it if you change the source code or run instructions.
 
 ### Check for an existing parent repository
 
@@ -459,8 +396,8 @@ Before initializing a new repository, run:
 git rev-parse --show-toplevel
 ```
 
-- If it reports **not a git repository**, proceed below. That result is expected for a new, independent project.
-- If it prints a parent directory such as `Introduction`, stop and decide how your coursework should be organized. Because you said each question needs its own repository, avoid accidentally creating nested repositories.
+- If it reports **not a git repository**, proceed below if you want to create a repository for this project.
+- If it prints a parent directory such as `Introduction`, decide whether coursework belongs in that existing repository. Avoid initializing a nested repository unless your course specifically requires it.
 - If it prints this `EmployeeDetails` directory, the repository already exists; skip `git init`.
 
 ### Initialize and commit
@@ -484,7 +421,7 @@ Replace those example values. For a public hosting service, consider its private
 Stage only the intended files:
 
 ```bash
-git add src/org/emp/Employee.java .gitignore README.md .vscode/settings.json
+git add src/org/emp/Employee.java .gitignore Readme.md .vscode/settings.json
 git diff --cached
 git commit -m "Complete EmployeeDetails OOP exercise"
 git status
@@ -502,8 +439,13 @@ For GitHub, for example:
 2. Choose visibility according to your instructor's requirements.
 3. Do not initialize the remote with a README, license, or ignore file; you already have a local commit.
 4. Copy the repository's actual HTTPS or SSH URL.
-5. Run `git remote add origin` followed by that URL on the same command line.
-6. Push:
+5. Add the remote using the URL you copied (replace the placeholder):
+
+```bash
+git remote add origin <repository-url>
+```
+
+6. Push your branch:
 
 ```bash
 git push -u origin main
@@ -511,29 +453,24 @@ git push -u origin main
 
 Authentication depends on your hosting service and setup. Do not paste access tokens into source files or commit them.
 
-Open the remote repository in your browser and verify that the files are present. Submit the **repository URL**, unless your instructor requests a different format.
+Open the remote repository in your browser and verify that the files are present. Submit its URL if your instructor requests a hosted repository.
 
-## 9. Important corrections to your lesson notes
+## 9. Concepts to explore in a later lesson
 
-Your notes are useful as an introduction, but some statements are inaccurate or outdated. Keep these distinctions:
+This exercise provides a small introduction rather than a complete survey of Java or OOP. These related concepts are worth exploring next:
 
-| Topic | More accurate explanation |
+| Term | Explanation |
 |---|---|
-| OOP | Usually means **Object-Oriented Programming**, not “Object Oriented Programming Structure.” |
-| Class | Defines fields and behavior; it is not simply a collection of objects. |
-| Object | An instance of a class, not merely “runtime memory allocation.” |
-| JDK | Development tools, including the compiler, plus the components needed to run Java programs. You need a JDK to develop this exercise. |
-| JRE | The runtime environment: the JVM and supporting libraries/components, not just predefined class files. A compatible runtime can run compiled programs without all development tools; modern distributions package runtimes in different ways. |
-| JVM | Loads and executes bytecode and manages runtime concerns such as memory. `javac` compiles source to bytecode; a JVM may also use JIT compilation during execution. |
-| Java versions | Java did not stop at “1.9.” Java 9 and later use version numbers such as 9, 17, 21, and 25. Java 8 is not an automatic best choice for a new learner. |
-| Portability | Compatible bytecode can run on different operating systems with suitable Java runtimes. The JVM implementation itself is platform-specific, and libraries/native dependencies can affect portability. |
-| Multithreading | Threads allow concurrent work; actual simultaneous execution depends on available processors and scheduling. |
-| Security | Java has features such as type checking, bytecode verification, and memory management. It is not a “virtual firewall” and does not automatically prevent unauthorized access. |
-| Open source | OpenJDK is an open-source implementation of Java. Open source concerns license rights, not merely whether something costs nothing. |
-| Four main OOP pillars | Encapsulation, abstraction, inheritance, and polymorphism. Classes and objects are foundational building blocks. |
-| Editor shortcuts | The shortcuts listed in your notes are editor-specific, not Java language features. Do not assume Eclipse shortcuts apply to VS Code. |
+| JDK | The Java Development Kit includes tools such as `javac` and the components needed to run Java programs. Use a JDK to develop this exercise. |
+| JVM | The Java Virtual Machine loads and executes Java bytecode and manages runtime tasks such as memory. A JVM may use just-in-time compilation while a program runs. |
+| Bytecode | The compiler produces `.class` files containing bytecode, which a compatible Java runtime can execute. |
+| Four OOP principles | Encapsulation, abstraction, inheritance, and polymorphism are often taught as core OOP principles. This program does not demonstrate all four. |
+| Instance fields and constructors | These can store employee details in each object instead of printing fixed values directly in each method. |
+| Input and validation | A later version could ask the user for details and validate the values before displaying them. |
+| Unit testing | Tests can check behavior automatically without requiring a person to inspect each run. |
+| Build tools | Maven or Gradle can manage dependencies, tests, and repeatable builds as a project grows. Neither is needed for this small example. |
 
-You do not need to master all these corrections before completing Question 01.
+Java's runtime, packaging, security, and concurrency are broader subjects. They are intentionally not treated as if this introductory exercise teaches them.
 
 ## 10. Troubleshooting
 
@@ -561,7 +498,7 @@ You do not need to master all these corrections before completing Question 01.
 - [ ] All six methods are called through that object reference.
 - [ ] Compilation succeeds and the output has six detail lines.
 - [ ] README explains how to compile and run.
-- [ ] No generated bytecode or real personal details are committed.
+- [ ] Generated bytecode is not committed, and no real personal details are included before publishing.
 - [ ] Remote repository contains the source and supporting files, if hosting is required.
 
 ## 12. Check your understanding
@@ -575,4 +512,8 @@ Before submitting, answer these in your own words:
 5. Why do we run `org.emp.Employee`, rather than just `Employee`?
 6. What happens if you change a method but never call it?
 
-@ub-victoire , @ub-victor
+### Suggested teaching activity
+
+Ask learners to predict the output before running the program. Then have them change one fictional value, recompile, and run it again. Discuss why editing the source file alone does not update an already compiled class file.
+
+As a follow-up exercise, add a new method such as `empDepartment()` and call it from `main`. Keep the method name consistent with the exercise requirements, and continue using fictional data.
