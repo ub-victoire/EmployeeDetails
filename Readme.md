@@ -512,10 +512,4 @@ Before submitting, answer these in your own words:
 5. Why do we run `org.emp.Employee`, rather than just `Employee`?
 6. What happens if you change a method but never call it?
 
-### Suggested teaching activity
-
-Ask learners to predict the output before running the program. Then have them change one fictional value, recompile, and run it again. Discuss why editing the source file alone does not update an already compiled class file.
-
-As a follow-up exercise, add a new method such as `empDepartment()` and call it from `main`. Keep the method name consistent with the exercise requirements, and continue using fictional data.
-
 Done by **Ushindi B. Victoire** Software Q.A Engineer  | Requirement Specialist | @ub-victoire @ub-victor
