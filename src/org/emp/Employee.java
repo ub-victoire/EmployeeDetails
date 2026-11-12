@@ -8,7 +8,7 @@ public class Employee {
 	public void empName(){
 		System.out.println("Employee Name: UShindi Bihame Victoire");
 	}
-	
+
 	public void empDob() {
 		System.out.println("Employee Data of Birth: 2005-03-25");
 	}
