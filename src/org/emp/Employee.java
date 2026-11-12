@@ -33,4 +33,5 @@ public class Employee {
 	employee.empDob();
 	employee.empPhone);
 	employee.empEmail();
+	employee.empAddress();
 }
