@@ -56,7 +56,9 @@ This tells java to put the compiled class files inside the `output` directory
 3. What is `.`?
 The dot (`.`) represents the **Current working directory**
 
-`javac -d .` means compile my java code and generate the 
+`javac -d .` means compile my java code and generate the class files in the current directory, following the package structure
+
+
 
 ### A simple mental model
 
