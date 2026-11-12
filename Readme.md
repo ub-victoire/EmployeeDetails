@@ -544,5 +544,3 @@ Before submitting, answer these in your own words:
 4. What is the difference between printing a value and returning a value?
 5. Why do we run `org.emp.Employee`, rather than just `Employee`?
 6. What happens if you change a method but never call it?
-
-**Your first practical checkpoint:** finish the environment check and project folders, then run the program. If anything fails, share the exact command and complete error output; do not randomly change several settings at once.
