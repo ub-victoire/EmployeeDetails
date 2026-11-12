@@ -33,6 +33,13 @@ The question does **not** ask you to implement all four OOP pillars. Its main fo
 ## How to run the project in terminal 
 `javac -d . src/org/emp/Employee.java && java src/org/emp/Employee.java`
 
+- `javac` stands for **Java Compiler**
+
+it converts Java code (.java) into bytecode (.class) that the Java Virtual Machine(JVM) can execute.
+
+`javac Employee.java` This comples that  file and generate `Employee.class` the the JVM can be able to execute them.
+
+
 
 ### A simple mental model
 
