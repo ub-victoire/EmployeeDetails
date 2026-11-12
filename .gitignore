@@ -1,0 +1,8 @@
+# Generated Java bytecode and build output
+*.class
+out/
+bin/
+target/
+
+# Local logs
+*.log
