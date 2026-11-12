@@ -25,6 +25,12 @@ public class Employee {
 	}
 
 	public static void main(String[] args){
-		
+		Employee employee = new Employee();
 	}
+
+	employee.empId();
+	employee.empName();
+	employee.empDob();
+	employee.empPhone);
+
 }
