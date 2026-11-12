@@ -517,3 +517,5 @@ Before submitting, answer these in your own words:
 Ask learners to predict the output before running the program. Then have them change one fictional value, recompile, and run it again. Discuss why editing the source file alone does not update an already compiled class file.
 
 As a follow-up exercise, add a new method such as `empDepartment()` and call it from `main`. Keep the method name consistent with the exercise requirements, and continue using fictional data.
+
+Done by **Ushindi B. Victoire** Software Q.A Engineer  | Requirement Specialist | @ub-victoire @ub-victor
