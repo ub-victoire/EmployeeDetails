@@ -30,6 +30,10 @@ In plain English:
 
 The question does **not** ask you to implement all four OOP pillars. Its main focus is **classes, objects, and methods**.
 
+## How to run the project in terminal 
+`javac -d . src/org/emp/Employee.java && java src/org/emp/Employee.java`
+
+
 ### A simple mental model
 
 - **Class:** a blueprint defining fields and behavior.
