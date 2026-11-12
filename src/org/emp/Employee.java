@@ -1,7 +1,7 @@
 package org.emp;
 
 public class Employee {
-	public void empIp(){
+	public void empId(){
 		System.out.println("Employee ID: EMP001");
 	}
 
