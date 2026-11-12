@@ -2,7 +2,7 @@ package org.emp;
 
 public class Employee {
 	public void empIp(){
-		System.out.println("Employee ID: EMP001")
+		System.out.println("Employee ID: EMP001");
 	}
 
 	public void empName(){
@@ -30,7 +30,7 @@ public class Employee {
     	employee.empId();
     	employee.empName();
     	employee.empDob();
-    	employee.empPhone);
+    	employee.empPhone();
     	employee.empEmail();
     	employee.empAddress();
 
